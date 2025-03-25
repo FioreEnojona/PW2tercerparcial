@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+body {
+    height: 100%;
+    min-height: 100vh;
+}
+
+
+#root {
+    @apply flex flex-col min-h-screen;
+}
+
+.navigation ul {
+    @apply flex-col md:flex-row m-0 p-0 justify-center items-center;
+}
+
+.navigation ul li a{
+    @apply inline-block text-sm py-2 px-4 cursor-pointer;
+}
+
+.footer {
+    @apply bg-black text-white text-center p-4;
+}

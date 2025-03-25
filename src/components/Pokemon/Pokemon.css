@@ -1,0 +1,3 @@
+.pokemonList{
+    @apply flex justify-between gap-1 flex-wrap 
+}

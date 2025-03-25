@@ -1,8 +1,17 @@
+ import { useState } from 'react';
+ import { Page } from '../components/Page';
+ import { getPokemonList } from '../../services/pockemonapi';
 export const DashboardPage = ()=>{
-    const mensaje ="Anakin Skywalker";
+    const [ message, setMessage] = useState('Hola Mundo');
+    const pokemons = getPokemonList();
     return (
-        <section>
-            {mensaje}
-        </section>
+        <Page title="DashBoard Page">
+            <section>
+                {message}
+                <br/>
+                
+                  
+            </section>
+        </Page>
     );
 }
