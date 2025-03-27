@@ -1,25 +1,27 @@
+import { getPokemonImg } from "../../services/pockemonapi";
 import { PokemonListItem } from "./PokemonListItem";
-export const PokemonList =(
+
+export const PokemonList = (
     {
-        PokemonList,
+        pokemonList,
         nextHandler,
-        previosHandler
+        previousHandler
     }
 )=>{
-    return(
+    return (
         <section className="pokemonList">
-            {PokemonList.map(
+            { pokemonList.map(
                 (item)=>{
                     return (
                         <PokemonListItem
                             key={item.name}
                             name={item.name}
                             url={item.url}
+                            {...getPokemonImg(item.url)}
                         />
                     )
                 }
             )}
         </section>
     );
-
 }
