@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router";
 import { useGetPokemons } from "../services/pokemonService"
 import { PokemonList } from "../components/PokemonList/PokemonList";
-import { Paging } from "../components/Paging/Paging";
+import { Paging } from "../components/paging/Paging";
 
 export const DashBoard = ()=>{
     const [page, setPage] = useState(1);
