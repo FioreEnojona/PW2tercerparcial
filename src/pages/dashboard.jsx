@@ -4,15 +4,23 @@
  import { usePokemonList } from '../services/pockemonapi';
 import { Paging } from '../components/paging/Paging';
 export const DashboardPage = ()=>{
-    const [ message, setMessage] = useState('Hola Mundo');
-    const pokemons = usePokemonList();
+    const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(10);
+    const pokemons = usePokemonList(page-1, limit);
+
     return (
         <Page title="DashBoard Page">
             <section>
-                {message}
-                <br/>
-                <PokemonList pokemonList={pokemons.results}/>
-                <Paging></Paging>
+                <PokemonList 
+                pokemonList={pokemons.results}
+                />
+                <Paging
+                    totalElements={pokemons.count}
+                    limit={limit}
+                    page={page}
+                    onPageChange={setPage}
+                    onLimitChange={setLimit}
+                />
             </section>
         </Page>
     );

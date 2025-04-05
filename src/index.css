@@ -37,3 +37,5 @@ footer {
 .pokemonListItem img{
     @apply object-cover;
 }
+
+@import "./styles/pagging.css";
