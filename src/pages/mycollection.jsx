@@ -20,6 +20,10 @@ export const MyCollection = () => {
         , [pokeCollection]
     );
     return (
+        <section className="bodycollection">
+            <section className="titulocollection">
+                <h1>Mi Coleccion</h1>
+            </section>
         <PokemonList
             pokemonList={finalCollection}
             clickHandler={(code) => {
@@ -27,5 +31,6 @@ export const MyCollection = () => {
                 navigate(`/details/${code}`)
             }}
         />
+        </section>
     )
 }
