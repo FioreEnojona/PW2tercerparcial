@@ -1,27 +1,36 @@
- import { useState } from 'react';
- import { PokemonList } from '../components/Pokemon/PokemonList';
- import { Page } from '../components/Page';
- import { usePokemonList } from '../services/pockemonapi';
-import { Paging } from '../components/paging/Paging';
-export const DashboardPage = ()=>{
-    const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(10);
-    const pokemons = usePokemonList(page-1, limit);
+import { useState } from "react"
+import { useNavigate } from "react-router";
+import { useGetPokemons } from "../services/pokemonService"
+import { PokemonList } from "../components/PokemonList/PokemonList";
+import { Paging } from "../components/Paging/Paging";
 
+export const DashBoard = ()=>{
+    const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(20);
+    const navigate = useNavigate();
+
+    const {pokemonData, isLoading, error} = useGetPokemons(page -1, limit);
     return (
-        <Page title="DashBoard Page">
-            <section>
-                <PokemonList 
-                pokemonList={pokemons.results}
+        <section className="container">
+        <h1 className="title">Dashboard</h1>
+        {isLoading && <section>Loading ....</section>}
+        {pokemonData.results.length > 0 && (
+            <>
+                <PokemonList
+                    pokemons={pokemonData.results}
+                    onShowDetail={(pokecod)=>{
+                        navigate(`/detail/${pokecod}`)
+                    }}
                 />
                 <Paging
-                    totalElements={pokemons.count}
+                    totalElements={pokemonData.count}
                     limit={limit}
                     page={page}
                     onPageChange={setPage}
                     onLimitChange={setLimit}
                 />
-            </section>
-        </Page>
-    );
+            </>
+        )}
+        </section>
+    )
 }

@@ -1,12 +1,23 @@
-import './App.css'
-import {DashboardPage} from './pages/dashboard'
-import {Page} from './components/Page'
+// Import vendor dependencies
+import {BrowserRouter, Routes, Route} from 'react-router';
+// Import Local Components
+import { DashBoard } from './pages/dashboard';
 
-
+import { Layout } from './pages/Layout';
+import { Detail } from './pages/Detail';
 function App() {
 
   return (
-<DashboardPage></DashboardPage>
+    <BrowserRouter>
+    <Routes>
+      <Route element={<Layout/>}>
+        <Route path="/" element={<DashBoard/>} />
+        <Route path="/my-collection" element={<section>Colección</section>} />
+        <Route path="/about-me" element={<section>About Me</section>} />
+        <Route path="/detail/:pokecod" element={<Detail/>} />
+      </Route>
+    </Routes>
+    </BrowserRouter>
   )
 }
 
