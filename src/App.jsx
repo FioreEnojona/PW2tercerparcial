@@ -2,9 +2,9 @@
 import {BrowserRouter, Routes, Route} from 'react-router';
 // Import Local Components
 import { DashBoard } from './pages/dashboard';
-
+import { MyCollection } from './pages/mycollection';
 import { Layout } from './pages/Layout';
-import { Detail } from './pages/Detail';
+import { Details } from './pages/Detail';
 function App() {
 
   return (
@@ -12,10 +12,10 @@ function App() {
     <Routes>
       <Route element={<Layout/>}>
         <Route path="/" element={<DashBoard/>} />
-        <Route path="/my-collection" element={<section>Colección</section>} />
+        <Route path="/my-collection" element={<MyCollection/>} />
         <Route path="/about-me" element={<section>About Me</section>} />
-        <Route path="/detail/:pokecod" element={<Detail/>} />
-      </Route>
+        <Route path="details/:pokeid" element={<Details />} />
+        </Route>
     </Routes>
     </BrowserRouter>
   )

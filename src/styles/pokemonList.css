@@ -1,9 +1,9 @@
 .pokemonHolder{
-    @apply p-4 flex flex-col flex-wrap md:flex-row gap-4 mx-auto max-w-5xl justify-center ;
+    @apply p-4 flex flex-col flex-wrap md:flex-row gap-4 mx-auto max-w-5xl justify-center;
 }
 
 .pokemonHolder section{
-    @apply w-full sm:w-48 flex items-center border shadow bg-black;
+    @apply w-full sm:w-48 flex items-center border shadow;
 }
 
 .pokemonHolder section img {

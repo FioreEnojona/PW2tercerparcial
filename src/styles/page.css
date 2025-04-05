@@ -1,7 +1,7 @@
 header {
     @apply relative
     md:flex md:items-center md:justify-between
-    bg-red-700 text-white  bg-black;
+    bg-red-700 text-white;
 }
 header div {
     @apply ml-10 md:ml-0;

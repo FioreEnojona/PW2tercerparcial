@@ -1,50 +1,64 @@
-import {useState, useEffect} from 'react';
-export const useGetPokemons = (page = 0, limit = 20) => {
-    const  [pokemonData, setPokemonData] = useState({
-        count:0,
-        results: []
-    })
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
+import { useState, useEffect } from "react";
+
+export const usePokemonList = (page = 0, limit = 20) => {
+    const [data, setData] = useState({ count: 0, results: [], next: null, previous: null })
     useEffect(
-        ()=>{
-            setIsLoading(true);
-            fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${limit*page}`)
-            .then((response)=>{
-                if( response.status === 200) {
-                    return response.json();
-                } else {
-                    setError("Error al Cargar la Data Intente de Nuevo");
-                    setIsLoading(false);
+        () => {
+            const urlToFetch = `https://pokeapi.co/api/v2/pokemon/?offset=${page * limit}&limit=${limit}`;
+            fetch(urlToFetch).then(
+                (response) => {
+                    if (response.status === 200) {
+                        return response.json();
+                    } else {
+                        return new Promise(() => null)
+                    }
                 }
-            }).then(
-                (jsonData)=>{
-                    setPokemonData(jsonData);
-                    setIsLoading(false);
+            ).then(
+                (data) => {
+                    setData(data);
                 }
             ).catch(
-                (e)=>{
-                    console.error("useGetPokemon", e);
-                    setError("Ocurrio un error, intente de Nuevo.")
-                    setIsLoading(false);
+                (error) => {
+                    console.error("Error al Carga PokedexAPI", error);
                 }
-            )
-
-        }, [page, limit, setPokemonData, setError, setIsLoading ]
-    );
-
-    return {
-        pokemonData,
-        isLoading,
-        error
-    }
+            );
+        }
+        , [page, limit, setData]);
+    return data;
 }
 
-export const getPokemonImg = ( url ) => {
-    let pokemonCod = url.split('/').splice(-2,1)[0] || ''
-    // https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/21.png
-    return [
-        pokemonCod,
-        `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonCod}.png`
-    ];
+export const usePokemonDetail = (code) => {
+    const [pokemonData, setPokemonData] = useState(null);
+    useEffect(
+        () => {
+            const urlToFetch = `https://pokeapi.co/api/v2/pokemon/${code}`;
+            fetch(urlToFetch)
+                .then(
+                    (response) => {
+                        if (response.status === 200) {
+                            return response.json()
+                        } else {
+                            return new Promise(() => null);
+                        }
+                    })
+                .then(
+                    (data) => {
+                        setPokemonData(data);
+                    }
+                )
+                .catch(
+                    (error) => {
+                        console.error("Error al cargar pokemon " + code, error);
+                    }
+                );
+        }
+        , [code, setPokemonData]);
+    return pokemonData;
+}
+export const getPokemonImg = (pokemonUrl) => {
+    const pokemonCode = pokemonUrl.split('/')[6] || '';
+    return {
+        code: pokemonCode,
+        imgSprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonCode}.png`
+    }
 }
