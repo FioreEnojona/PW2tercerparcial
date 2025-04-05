@@ -1,18 +1,31 @@
-export const NavBar =()=>{
+import { NavLink } from "react-router"
+export const NavBar = (
+    {isOpen = false}
+)=>{
     return (
-        <nav className="navigation">
-            <ul className="p-0 m-0 flex">
-                <li>
-                    <a>Dashboard</a>
-                </li>
-                <li>
-                    <a>My Collection</a>
-                </li>
-                <li>
-                    <a>About</a>
-                </li>
-            </ul>
+        <nav className={isOpen ? "open": ""}>
+                <ul>
+                    <li><NavLink to="/">Home</NavLink></li>
+                    <li><NavLink to="/my-collection">My Collection</NavLink></li>
+                    <li><NavLink to="/about-me">About</NavLink></li>
+                </ul>
         </nav>
-    );
-    
+    )
+}
+
+export const HamburgerBtn = (
+    {
+        onClickHandler = ()=>{}
+    }
+)=>{
+    return (
+        <button
+            className="btnHamburger"
+            onClick={onClickHandler}
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    )
 }
