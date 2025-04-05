@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavBar, HamburgerBtn } from "./NavBar";
+import { NavBar, HamburgerBtn } from "./Navbar";
 
 export const Header = (
     {
