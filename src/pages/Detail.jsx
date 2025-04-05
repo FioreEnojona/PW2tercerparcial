@@ -12,9 +12,9 @@ export const Details = () => {
         )
     }
     return (
-        <section>
+        <section className="Collection"> 
             <h1>{pokemonData.name}</h1>
-            <section>
+            <section className="evolutions">
                 <img src={pokemonData.sprites.front_default} />
                 <img src={pokemonData.sprites.back_default} />
             </section>

@@ -1,18 +1,18 @@
 header {
     @apply relative
     md:flex md:items-center md:justify-between
-    bg-red-700 text-white;
+    bg-pink-600 text-white  font-bold;
 }
 header div {
     @apply ml-10 md:ml-0;
 }
 header h1 {
     @apply text-xl font-bold p-4
-    md:text-2xl
+    md:text-2xl transform motion-safe:hover:scale-110
     ;
 }
 header nav {
-    @apply absolute top-full left-0 w-full min-h-0 h-0 overflow-hidden bg-red-700
+    @apply absolute top-full left-0 w-full min-h-0 h-0 overflow-hidden  bg-pink-600
     md:relative md:w-auto md:min-h-auto md:h-auto md:overflow-visible
     ;
     transition: min-height 0.3s ease-in-out;
@@ -24,12 +24,12 @@ header nav.open {
 }
 header nav ul {
     @apply flex flex-col
-    md:flex-row md:items-center md:gap-4
+    md:flex-row md:items-center md:gap-4 
     ;
 }
 header nav ul li a {
     @apply block px-4 py-2 border-b-1 cursor-pointer
-    md:inline-block md:border-none
+    md:inline-block md:border-none  hover:bg-pink-700
     ;
 }
 

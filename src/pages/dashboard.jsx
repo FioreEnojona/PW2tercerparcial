@@ -15,7 +15,7 @@ export const DashBoard = () => {
         navigateTo(url);
     }
     return (
-        <section>
+        <section className="body">
             <PokemonList
                 pokemonList={pokemons.results}
                 clickHandler={viewPokemonDetail}

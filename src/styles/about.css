@@ -1,0 +1,67 @@
+.about-container {
+    @apply container mx-auto p-8 bg-purple-950 text-pink-600 min-w-screen min-h-screen;
+}
+
+.about-left {
+    @apply max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center;
+}
+
+.profile-section {
+    @apply space-y-8;
+}
+
+.profile-image-container {
+    @apply w-72 h-72 md:mx-0 rounded-full overflow-hidden border-4 border-pink-600 transform motion-safe:hover:scale-110;
+}
+
+.profile-image {
+    @apply w-full h-full object-cover;
+}
+
+.contact-info {
+    @apply space-y-6;
+}
+
+.contact-label {
+    @apply text-sm uppercase tracking-wider text-purple-400 mb-1;
+}
+
+.contact-value {
+    @apply text-xl;
+}
+
+.about-right {
+    @apply space-y-6;
+}
+
+.about-title {
+    @apply text-4xl font-bold mb-6;
+}
+
+.about-description {
+    @apply text-purple-400 text-lg mb-8;
+}
+
+.skills-container {
+    @apply bg-purple-900 p-6 rounded-xl  transform motion-safe:hover:scale-110;
+}
+
+.skills-title {
+    @apply text-2xl font-semibold mb-6;
+}
+
+.skills-list {
+    @apply space-y-4;
+}
+
+.skill-item {
+    @apply flex items-center;
+}
+
+.skill-bullet {
+    @apply w-3 h-3 bg-pink-600 rounded-full mr-3;
+}
+
+.skill-name {
+    @apply  text-purple-400;
+}

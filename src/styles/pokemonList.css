@@ -1,13 +1,13 @@
 .pokemonHolder{
-    @apply p-4 flex flex-col flex-wrap md:flex-row gap-4 mx-auto max-w-5xl justify-center;
+    @apply p-4 flex flex-col flex-wrap md:flex-row gap-6 mx-auto max-w-6xl justify-center;
 }
 
 .pokemonHolder section{
-    @apply w-full sm:w-48 flex items-center border shadow;
+    @apply w-full sm:w-48 flex items-center border-2 border-pink-600 shadow bg-purple-900 rounded-3xl transform motion-safe:hover:scale-110;
 }
 
 .pokemonHolder section img {
-    @apply w-16 h-16 object-cover;
+    @apply w-100 h-20 object-cover;
 }
 
 .pokemonHolder section div {
@@ -15,9 +15,9 @@
 }
 
 .pokemonHolder section div strong {
-    @apply py-4;
+    @apply py-4  text-amber-50;
 }
 
 .pokemonHolder section div button {
-    @apply py-2 px-4 rounded-2xl border bg-red-700 text-white;
+    @apply py-4 px-2 rounded-4xl border border-pink-600 bg-purple-900 text-purple-400 cursor-pointer ;
 }

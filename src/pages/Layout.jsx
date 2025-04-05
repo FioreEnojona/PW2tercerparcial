@@ -6,7 +6,7 @@ export const Layout = () => {
     return (
         <>
             <Header
-                title="Pokedex V-202501"
+                title="Pokedex Barraza"
             />
             <Main>
                 <Outlet />
