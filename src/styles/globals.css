@@ -1,5 +1,5 @@
 .container {
-    @apply p-3 sm:p-4 max-w-6xl mx-auto;
+    @apply  p-3 sm:p-4 max-w-6xl mx-auto min-h-screen text-white;
 }
 .title {
     @apply font-bold text-lg;
